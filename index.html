@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>@aemirdnr</title>
 </head>
+<div id="boot" class="boot">
+    <div class="d-flex flex-column h-100 justify-content-center align-items-center">
+        <div class="boot-animation"></div>
+        <img src="./img/ubuntu.png" alt="Ubuntu">
+    </div>
+</div>
 <body>
     <header>
         <nav class="nav mx-3">
@@ -42,11 +48,11 @@
         </div>
         <div class="desktop">
             <ul class="desktop__files m-0 p-0">
-                <li class="desktop__file p-3 d-flex flex-column text-center">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openNotepad()">
                     <img id="file__icon" src="./img/notepad.png" alt="Notepad">
                     <b class="file__text mt-1">ReadMe</b>
                 </li>
-                <li class="desktop__file p-3 d-flex flex-column text-center">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="getResume()">
                     <img id="file__icon" src="./img/document.png" alt="Document">
                     <b class="file__text mt-1">Resume</b>
                 </li>
@@ -56,17 +62,17 @@
                 </li>
             </ul>
         </div>
-        <div id="console" class="console">
+        <div id="console" class="console" style="display: none;">
             <div id="console__header" class="console__header">
                 <div id="console__buttons" class="d-flex p-2">
-                    <div class="console__button console__button-exit" onclick="buttonClose()">
-                        <img id="console__button-close" class="console__button-img" src="./img/close.png" alt="Close">
+                    <div class="header__button header__button-exit" onclick="buttonClose(console)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
                     </div>
-                    <div class="console__button ml-1" onclick="buttonMinimize()">
-                        <img id="console__button-minimize" class="console__button-img" src="./img/minimize.png" alt="Minimize">
+                    <div class="header__button ml-1" onclick="buttonMinimize(console)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
                     </div>
-                    <div class="console__button ml-1" onclick="buttonFullscreen()">
-                        <img id="console__button-fulscreen" class="console__button-img" src="./img/fullscreen.png" alt="Fullscreen">
+                    <div class="header__button ml-1" onclick="buttonFullscreen(console)">
+                        <img id="header__button-fulscreen" class="header__button-img" src="./img/fullscreen.png" alt="Fullscreen">
                     </div>
                 </div>
                 <b id="console__headline" class="mx-auto align-self-center">aemirdnr@ubuntu: ~</b>
@@ -76,9 +82,33 @@
                     <p class="console__output m-0"></p>
                 </div>
                 <div class="d-flex">
-                    <p class="console__admin text-nowrap">aemirdnr@ubuntu: ~$</p>
+                    <p class="console__admin text-nowrap w-25">aemirdnr@ubuntu: ~$</p>
                     <input id="console__input" class="ml-2" type="text">
                 </div>
+            </div>
+        </div>
+        <div id="readme" class="read-me" style="display: none;">
+            <div id="readme__header" class="readme__header">
+                <div id="header__buttons" class="d-flex p-2">
+                    <div class="header__button header__button-exit" onclick="buttonClose(readMe)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                    <div class="header__button ml-1" onclick="buttonMinimize(readMe)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                    <div class="header__button ml-1" onclick="buttonFullscreen(readMe)">
+                        <img id="header__button-fulscreen" class="header__button-img" src="./img/fullscreen.png" alt="Fullscreen">
+                    </div>
+                </div>
+                <b class="mx-auto align-self-center w-25">ReadMe.txt</b>
+            </div>
+            <div id="readme__body" class="readme__body">
+                <p class="p-2">Hi, I'm Anıl Emir Döner. This is my portfolio website. You can learn so many things about me when surf around, such as which songs i like to listen or which movies i like to watch.</p>
+                <p class="p-2">But most important informations about me hidden in terminal. Open the terminal and write 'help' to terminal to see commands can use.</p>
+                <p class="p-2">[Commands]</p>
+                <p class="px-2 m-0">whoami -> Informations about my background.</p>
+                <p class="px-2 m-0">certificate -> A list of certifications i have.</p>
+                <p class="px-2 m-0">contact -> My contact addresses.</p>
             </div>
         </div>
     </div>

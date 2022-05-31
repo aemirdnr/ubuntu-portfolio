@@ -1,5 +1,6 @@
 window.onload = function() {
-    getFullDate()
+  getFullDate()
+  document.querySelector(".boot").style.display = "none"
 }
 
 let dateText = document.querySelector("#date")
@@ -8,13 +9,15 @@ const console = document.querySelector(".console")
 const consoleBody = document.querySelector(".console__body")
 const header = console.querySelector(".console__header")
 
+const readMe = document.querySelector("#readme")
+
 const consoleInput = document.querySelector("#console__input")
 let consoleOutput = document.querySelector(".console__output")
 
 let consoleText = "aemirdnr@ubuntu: ~$ "
-let isFullscreen = false
 
 dragElement(console)
+dragElement(readMe)
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
@@ -74,6 +77,18 @@ function getFullDate() {
     setTimeout(getFullDate, 60000)
 }
 
+function getResume() {
+  window.open('./resume.jpg', '_blank')
+}
+
+function openNotepad() {
+  if (readMe.style.display != "none") {
+    readMe.style.display = "none"
+  } else {
+    readMe.style.display = "block"
+  }
+}
+
 function openTerminal() {
   if (console.style.display != "none") {
     console.style.display = "none"
@@ -83,40 +98,77 @@ function openTerminal() {
   }
 }
 
-function buttonClose() {
-  console.style.display = "none"
-  consoleInput.value = ""
-  consoleOutput.innerHTML = ""
-}
-
-function buttonMinimize() {
-  console.style.display = "none"
-}
-
-function buttonFullscreen() {
-  if (!isFullscreen) {
-    isFullscreen = true
-
-    consoleInput.focus()
-    header.onmousedown = null
-
-    console.style.top = "0"
-    console.style.left = "0"
-    console.style.width = "100%"
-    consoleBody.style.height = "100vh"
-    consoleOutput.style.maxHeight = "92vh"
+function buttonClose(id) {
+  if (id == console) {
+    console.style.display = "none"
+    consoleInput.value = ""
+    consoleOutput.innerHTML = ""
   }
-  else {
-    isFullscreen = false
+  else if (id == readMe) {
+    readMe.style.display = "none"
+  }
+}
 
-    consoleInput.focus()
-    dragElement(console)
+function buttonMinimize(id) {
+  if (id == console) {
+    console.style.display = "none"
+  }
+  else if (id == readMe) {
+    readMe.style.display = "none"
+  }
+}
 
-    console.style.top = "25%"
-    console.style.left = "32%"
-    console.style.width = "666px"
-    consoleBody.style.height = "400px"
-    consoleOutput.style.maxHeight = "374px"
+let isConsoleFullscreen = false
+let isReadmeFullscreen = false
+
+function buttonFullscreen(id) {
+  if (id == console) {
+    if (!isConsoleFullscreen) {
+      isConsoleFullscreen = true
+  
+      consoleInput.focus()
+      header.onmousedown = null
+  
+      console.style.top = "0"
+      console.style.left = "0"
+      console.style.width = "100%"
+      consoleBody.style.height = "100vh"
+      consoleOutput.style.maxHeight = "92vh"
+    }
+    else {
+      isConsoleFullscreen = false
+  
+      consoleInput.focus()
+      dragElement(console)
+  
+      console.style.top = "25%"
+      console.style.left = "32%"
+      console.style.width = "666px"
+      consoleBody.style.height = "400px"
+      consoleOutput.style.maxHeight = "374px"
+    }
+  }
+  else if (id == readMe) {
+    if (!isReadmeFullscreen) {
+      isReadmeFullscreen = true
+
+      document.getElementById(id.id + "__header").onmousedown = null
+
+      readMe.style.top = "0"
+      readMe.style.left = "0"
+      readMe.style.width = "100%"
+      document.getElementById("readme__body").style.height = "100vh"
+    }
+    else {
+      isReadmeFullscreen = false
+
+      dragElement(id)
+
+      readMe.style.top = "25%"
+      readMe.style.left = "32%"
+      readMe.style.width = "666px"
+      document.getElementById("readme__body").style.height = "400px"
+    }
   }
 }
 

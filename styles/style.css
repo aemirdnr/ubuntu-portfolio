@@ -1,3 +1,7 @@
+* {
+    user-select: none;
+}
+
 body {
     margin: 0;
     height: 100vh;
@@ -116,7 +120,6 @@ header {
 /* Console (Terminal) */
 
 .console {
-    display: none;
     width: 666px;
     position: absolute;
 
@@ -136,7 +139,7 @@ header {
     border-top-right-radius: 0.6rem;
 }
 
-.console__button {
+.header__button {
     display: flex;
     justify-content: center;
     align-content: center;
@@ -146,19 +149,19 @@ header {
     border-radius: 1rem;
 }
 
-.console__button:hover {
+.header__button:hover {
     background-color: rgb(163, 163, 163);
 }
 
-.console__button-exit {
+.header__button-exit {
     background-color: #dd4814;
 }
 
-.console__button-exit:hover {
+.header__button-exit:hover {
     background-color: #e06a3f;
 }
 
-.console__button-img {
+.header__button-img {
     align-self: center;
     width: 16px;
     height: 16px;
@@ -209,3 +212,95 @@ header {
 }
 
 /* ------------------ */
+
+/* ReadMe Notepad */
+
+.read-me {
+    width: 666px;
+    position: absolute;
+
+    cursor: default;
+}
+
+.readme__header {
+    display: flex;
+    align-content: center;
+
+    background-color: rgb(50, 50, 50);
+
+    font-family: "Ubuntu Regular";
+    color: rgb(181, 181, 181);
+
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+}
+
+.readme__body {
+    height: 400px;
+
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: start;
+
+    background-color: rgba(196, 196, 196, 0.62);
+
+    color: black;
+    font-family: "Ubuntu Regular";
+
+    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+}
+
+
+/* ------------- */
+
+/* Boot Screen */
+
+.boot {
+    display: fixed;
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    background-color: black;
+    width: 100%;
+    height: 100vh;
+}
+
+.boot img {
+    position: absolute;
+    width: 50px;
+
+    animation: bootAnimation 3s linear infinite;
+}
+
+.boot-animation {
+    display: inline-block;
+    width: 160px;
+    height: 160px;
+}
+
+.boot-animation::after {
+    content: " ";
+    display: block;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: bootAnimation 1.2s linear infinite;
+}
+
+@keyframes bootAnimation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+/* ----------- */
