@@ -56,7 +56,7 @@
                     <img id="file__icon" src="./img/document.png" alt="Document">
                     <b class="file__text mt-1">Resume</b>
                 </li>
-                <li class="desktop__file p-3 d-flex flex-column text-center">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openFiles()">
                     <img id="file__icon" src="./img/folder.png" alt="Folder">
                     <b class="file__text mt-1">Files</b>
                 </li>
@@ -82,8 +82,120 @@
                     <p class="console__output m-0"></p>
                 </div>
                 <div class="d-flex">
-                    <p class="console__admin text-nowrap w-25">aemirdnr@ubuntu: ~$</p>
+                    <p class="console__admin text-nowrap">aemirdnr@ubuntu: ~$</p>
                     <input id="console__input" class="ml-2" type="text">
+                </div>
+            </div>
+        </div>
+        <div id="files" class="files" style="display: none;">
+            <div id="files__header" class="files__header">
+                <div id="header__buttons" class="d-flex p-2">
+                    <div class="header__button header__button-exit" onclick="buttonClose(files)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                    <div class="header__button ml-1" onclick="buttonMinimize(files)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                </div>
+                <b class="mx-auto align-self-center">Files</b>
+            </div>
+            <div id="files__body" class="files__body">
+                <div id="files__sidebar" class="files__sidebar">
+                    <ul id="files__list" class="p-0">
+                        <li id="home__files" class="files__item active-file" onclick="fileMoves('home')">
+                            <img id="files__img" src="./img/home.png" alt="Desktop">
+                            Desktop
+                        </li>
+                        <li id="docs__files" class="files__item" onclick="fileMoves('docs')">
+                            <img id="files__img" src="./img/documents.png" alt="Documents">
+                            Documents
+                        </li>
+                        <li id="downloads__files" class="files__item" onclick="fileMoves('downloads')">
+                            <img id="files__img" src="./img/downloads.png" alt="Downloads">
+                            Downloads
+                        </li>
+                        <li id="music__files" class="files__item" onclick="fileMoves('music')">
+                            <img id="files__img" src="./img/music.png" alt="Music">
+                            Music
+                        </li>
+                        <li id="pictures__files" class="files__item" onclick="fileMoves('pictures')">
+                            <img id="files__img" src="./img/pictures.png" alt="Pictures">
+                            Pictures
+                        </li>
+                        <li id="videos__files" class="files__item" onclick="fileMoves('videos')">
+                            <img id="files__img" src="./img/videos.png" alt="Videos">
+                            Videos
+                        </li>
+                        <li id="trash__files" class="files__item" onclick="fileMoves('trash')">
+                            <img id="files__img" src="./img/trash.png" alt="Trash">
+                            Trash
+                        </li>
+                    </ul>
+                </div>
+                <div id="home__body" class="files__screen" style="display: flex;">
+                    <ul class="desktop__files d-flex m-0 p-0">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openNotepad()">
+                            <img id="file__icon" src="./img/notepad.png" alt="Notepad">
+                            <b class="file__text mt-1">ReadMe</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="getResume()">
+                            <img id="file__icon" src="./img/document.png" alt="Document">
+                            <b class="file__text mt-1">Resume</b>
+                        </li>
+                    </ul>
+                </div>
+                <div id="docs__body" class="files__screen" style="display: none;">
+                    <ul class="desktop__files d-flex m-0 p-0">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://drive.google.com/file/d/1TvpNLG47giQiyWu0SpPEr5Cm6NessOQ0/view', '_blank')">
+                            <img id="file__icon" src="./img/cert.png" alt="Certification">
+                            <b class="file__text mt-1">Ethical Hacking</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://www.credly.com/badges/2bf82e5d-8815-4a59-8999-ea05758b3aeb/public_url', '_blank')">
+                            <img id="file__icon" src="./img/cert.png" alt="Certification">
+                            <b class="file__text mt-1">Cybersecurity Essentials</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://drive.google.com/file/d/1PgJvOS4_W7NyvxGquQ1g7G71o1EJVTeP/view', '_blank')">
+                            <img id="file__icon" src="./img/cert.png" alt="Certification">
+                            <b class="file__text mt-1">ICS 401V</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://drive.google.com/file/d/15R3Ty2mQMaWfLpwmqUxSPUf760vVshb4/view', '_blank')">
+                            <img id="file__icon" src="./img/cert.png" alt="Certification">
+                            <b class="file__text mt-1">ICS 301V</b>
+                        </li>
+                    </ul>
+                </div>
+                <div id="downloads__body" class="files__screen" style="display: none;">
+                    <ul class="desktop__files d-flex m-0 p-0">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://www.figma.com/downloads/', '_blank')">
+                            <img id="file__icon" src="./img/figma.png" alt="EMPTY">
+                            <b class="file__text mt-1">FigmaSetup.exe</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://apps.microsoft.com/store/detail/trello/9NBLGGH4XXVW?hl=en-us&gl=US', '_blank')">
+                            <img id="file__icon" src="./img/trello.png" alt="EMPTY">
+                            <b class="file__text mt-1">TrelloSetup.exe</b>
+                        </li>
+                    </ul>
+                </div>
+                <div id="music__body" class="files__screen" style="display: none;">
+                    <h6 class="m-0 text-light align-self-center mx-auto">This folder is empty.</h6>
+                </div>
+                <div id="pictures__body" class="files__screen" style="display: none;">
+                    <ul class="desktop__files d-flex m-0 p-0">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee1.jpg', '_blank')">
+                            <img id="file__icon" src="./img/ee1.jpg" alt="EMPTY">
+                            <b class="file__text mt-1">image1.jpg</b>
+                        </li>
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee2.jpg', '_blank')">
+                            <img id="file__icon" src="./img/ee2.jpg" alt="EMPTY">
+                            <b class="file__text mt-1">image2.jpg</b>
+                        </li>
+                    </ul>
+                </div>
+                <div id="videos__body" class="files__screen" style="display: none;">
+                    <h6 class="m-0 text-light align-self-center mx-auto">This folder is empty.</h6>
+                </div>
+                <div id="trash__body" class="files__screen" style="display: none;">
+                    <h6 class="m-0 text-light align-self-center mx-auto">Trash is empty.</h6>
                 </div>
             </div>
         </div>
@@ -100,7 +212,7 @@
                         <img id="header__button-fulscreen" class="header__button-img" src="./img/fullscreen.png" alt="Fullscreen">
                     </div>
                 </div>
-                <b class="mx-auto align-self-center w-25">ReadMe.txt</b>
+                <b class="mx-auto align-self-center">ReadMe.txt</b>
             </div>
             <div id="readme__body" class="readme__body">
                 <p class="p-2">Hi, I'm Anıl Emir Döner. This is my portfolio website. You can learn so many things about me when surf around, such as which songs i like to listen or which movies i like to watch.</p>

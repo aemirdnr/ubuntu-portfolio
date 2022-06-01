@@ -10,6 +10,7 @@ const consoleBody = document.querySelector(".console__body")
 const header = console.querySelector(".console__header")
 
 const readMe = document.querySelector("#readme")
+const files = document.querySelector("#files")
 
 const consoleInput = document.querySelector("#console__input")
 let consoleOutput = document.querySelector(".console__output")
@@ -18,6 +19,7 @@ let consoleText = "aemirdnr@ubuntu: ~$ "
 
 dragElement(console)
 dragElement(readMe)
+dragElement(files)
 
 function dragElement(elmnt) {
   var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0
@@ -98,6 +100,14 @@ function openTerminal() {
   }
 }
 
+function openFiles() {
+  if (files.style.display != "none") {
+    files.style.display = "none"
+  } else {
+    files.style.display = "block"
+  }
+}
+
 function buttonClose(id) {
   if (id == console) {
     console.style.display = "none"
@@ -107,6 +117,9 @@ function buttonClose(id) {
   else if (id == readMe) {
     readMe.style.display = "none"
   }
+  else if (id == files) {
+    files.style.display = "none"
+  }
 }
 
 function buttonMinimize(id) {
@@ -115,6 +128,9 @@ function buttonMinimize(id) {
   }
   else if (id == readMe) {
     readMe.style.display = "none"
+  }
+  else if (id == files) {
+    files.style.display = "none"
   }
 }
 
@@ -197,3 +213,22 @@ consoleInput.addEventListener("keyup", function (e){
     consoleInput.value = ""
 }
 })
+
+function fileMoves(id) {
+  const fileList = document.querySelectorAll(".files__item")
+  const bodyList = document.querySelectorAll(".files__screen")
+
+  //Press to different button
+  if (!document.getElementById(id + "__files").classList.contains("active-file")) {
+    fileList.forEach(listItem => {
+      listItem.classList.remove('active-file')
+    })
+
+    bodyList.forEach(body => {
+      body.style.display = "none"
+    })
+
+    document.getElementById(id + "__body").style.display = "flex"
+    document.getElementById(id + "__files").classList.add("active-file")
+  }
+}
