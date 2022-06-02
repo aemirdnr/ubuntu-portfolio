@@ -5,17 +5,23 @@ window.onload = function() {
 
 let dateText = document.querySelector("#date")
 
+//Console
 const console = document.querySelector(".console")
 const consoleBody = document.querySelector(".console__body")
-const header = console.querySelector(".console__header")
+const consoleHeader = console.querySelector(".console__header")
+const consoleInput = document.querySelector("#console__input")
+const consoleOutput = document.querySelector(".console__output")
 
+//Files
 const readMe = document.querySelector("#readme")
 const files = document.querySelector("#files")
 
-const consoleInput = document.querySelector("#console__input")
-let consoleOutput = document.querySelector(".console__output")
-
-let consoleText = "aemirdnr@ubuntu: ~$ "
+//Apps
+const browser = document.querySelector("#browser")
+const browserInput = document.querySelector(".browser__input")
+//Signal
+//Spotify
+//Netflix
 
 dragElement(console)
 dragElement(readMe)
@@ -79,59 +85,31 @@ function getFullDate() {
     setTimeout(getFullDate, 60000)
 }
 
-function getResume() {
-  window.open('./resume.jpg', '_blank')
-}
+function openObject(id) {
+  let object = document.getElementById(id.id)
 
-function openNotepad() {
-  if (readMe.style.display != "none") {
-    readMe.style.display = "none"
+  if (object.style.display != "none") {
+    object.style.display = "none"
   } else {
-    readMe.style.display = "block"
+    object.style.display = "block"
   }
-}
 
-function openTerminal() {
-  if (console.style.display != "none") {
-    console.style.display = "none"
-  } else {
-    console.style.display = "block"
+  if (id == console) {
     consoleInput.focus()
   }
 }
 
-function openFiles() {
-  if (files.style.display != "none") {
-    files.style.display = "none"
-  } else {
-    files.style.display = "block"
-  }
-}
-
 function buttonClose(id) {
+  document.getElementById(id.id).style.display = "none"
+
   if (id == console) {
-    console.style.display = "none"
     consoleInput.value = ""
     consoleOutput.innerHTML = ""
-  }
-  else if (id == readMe) {
-    readMe.style.display = "none"
-  }
-  else if (id == files) {
-    files.style.display = "none"
   }
 }
 
 function buttonMinimize(id) {
-  if (id == console) {
-    console.style.display = "none"
-  }
-  else if (id == readMe) {
-    readMe.style.display = "none"
-  }
-  else if (id == files) {
-    files.style.display = "none"
-  }
+  document.getElementById(id.id).style.display = "none"
 }
 
 let isConsoleFullscreen = false
@@ -143,7 +121,7 @@ function buttonFullscreen(id) {
       isConsoleFullscreen = true
   
       consoleInput.focus()
-      header.onmousedown = null
+      consoleHeader.onmousedown = null
   
       console.style.top = "0"
       console.style.left = "0"
@@ -192,22 +170,24 @@ function buttonFullscreen(id) {
 consoleInput.addEventListener("keyup", function (e){
   if (e.key === 'Enter' || e.keyCode === 13) {
     if (consoleInput.value == "whoami") {
-      consoleOutput.innerHTML += consoleText + "Hi, I'm Emir.<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Hi, I'm Emir.<br>\n"
     }
     else if (consoleInput.value == "contact") {
-      consoleOutput.innerHTML += consoleText + "You can reach me on e-mail, my e-mail adress is aemirdnr@gmail.com<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "You can reach me on e-mail, my e-mail adress is aemirdnr@gmail.com<br>\n"
     }
     else if (consoleInput.value == "help") {
-      consoleOutput.innerHTML += consoleText + "Commands: whoami, contact, help, clear<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Commands: whoami, contact, help, clear<br>\n"
     }
     else if (consoleInput.value == "clear") {
       consoleOutput.innerHTML = ""
     }
-    else if (consoleInput.value == "test") {
-      consoleOutput.innerHTML += consoleText + "Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet<br>\n"
+    else if (consoleInput.value == "exit") {
+      consoleOutput.innerHTML = ""
+      consoleInput.value = ""
+      console.style.display = "none"
     }
     else {
-      consoleOutput.innerHTML += consoleText + "Command not found. Write 'help' to see commands.<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Command not found. Write 'help' to see commands.<br>\n"
     }
     //Clear after press ENTER
     consoleInput.value = ""
@@ -231,4 +211,27 @@ function fileMoves(id) {
     document.getElementById(id + "__body").style.display = "flex"
     document.getElementById(id + "__files").classList.add("active-file")
   }
+}
+
+//Browser Functions
+const browserFrame = document.querySelector(".browser__screen")
+
+browserInput.addEventListener("keyup", function (e){
+  if (e.key === 'Enter' || e.keyCode === 13) {
+    if (!browserInput.value.includes("http") && !browserInput.value.includes("https")) {
+      browserInput.value = "https://" + browserInput.value
+      browserFrame.src = browserInput.value
+    } else {
+      browserFrame.src = browserInput.value
+    }
+  }
+})
+
+function goHomepage() {
+  browserInput.value = "https://ubuntu.com"
+  browserFrame.src = "https://ubuntu.com"
+}
+
+function reloadPage() {
+  browserFrame.src = browserFrame.src
 }

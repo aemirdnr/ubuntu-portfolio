@@ -17,7 +17,7 @@
 <body>
     <header>
         <nav class="nav mx-3">
-            <div class="nav__terminal d-flex p-2" onclick="openTerminal()">
+            <div class="nav__terminal d-flex p-2" onclick="openObject(console)">
                 <img id="terminal-img" src="./img/console.png" alt="Console">
                 <h6 id="terminal__text" class="nav__text m-0 ml-2">Terminal</h6>
             </div>
@@ -32,7 +32,7 @@
     <div id="screen" class="d-flex">
         <div class="sidebar">
             <ul class="sidebar__list m-0 p-0">
-                <li class="sidebar__item p-4">
+                <li class="sidebar__item p-4" onclick="openObject(browser)">
                     <img class="sidebar__icon" src="./img/firefox.png" alt="Firefox logo">
                 </li>
                 <li class="sidebar__item p-4">
@@ -48,15 +48,15 @@
         </div>
         <div class="desktop">
             <ul class="desktop__files m-0 p-0">
-                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openNotepad()">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openObject(readme)">
                     <img id="file__icon" src="./img/notepad.png" alt="Notepad">
                     <b class="file__text mt-1">ReadMe</b>
                 </li>
-                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="getResume()">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./resume.jpg', '_blank')">
                     <img id="file__icon" src="./img/document.png" alt="Document">
                     <b class="file__text mt-1">Resume</b>
                 </li>
-                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openFiles()">
+                <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openObject(files)">
                     <img id="file__icon" src="./img/folder.png" alt="Folder">
                     <b class="file__text mt-1">Files</b>
                 </li>
@@ -77,7 +77,7 @@
                 </div>
                 <b id="console__headline" class="mx-auto align-self-center">aemirdnr@ubuntu: ~</b>
             </div>
-            <div class="console__body px-2">
+            <div class="console__body px-2" onclick="consoleInput.focus()">
                 <div class="d-flex">
                     <p class="console__output m-0"></p>
                 </div>
@@ -134,11 +134,11 @@
                 </div>
                 <div id="home__body" class="files__screen" style="display: flex;">
                     <ul class="desktop__files d-flex m-0 p-0">
-                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openNotepad()">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openObject(readme)">
                             <img id="file__icon" src="./img/notepad.png" alt="Notepad">
                             <b class="file__text mt-1">ReadMe</b>
                         </li>
-                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="getResume()">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./resume.jpg', '_blank')">
                             <img id="file__icon" src="./img/document.png" alt="Document">
                             <b class="file__text mt-1">Resume</b>
                         </li>
@@ -221,6 +221,35 @@
                 <p class="px-2 m-0">whoami -> Informations about my background.</p>
                 <p class="px-2 m-0">certificate -> A list of certifications i have.</p>
                 <p class="px-2 m-0">contact -> My contact addresses.</p>
+            </div>
+        </div>
+        <div id="browser" class="browser" style="display: none;">
+            <div id="browser__header" class="browser__header">
+                <b class="mx-auto align-self-center">Mozilla Firefox</b>
+                <div id="browser__buttons" class="d-flex p-2">
+                    <div class="header__button" onclick="buttonMinimize(browser)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                    <div class="header__button ml-1 header__button-exit" onclick="buttonClose(browser)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                </div>
+            </div>
+            <div id="browser__specs" class="browser__specs p-2">
+                <div id="browser__specs-start" class="col-3 align-content-center d-flex">
+                    <img class="browser__specs-img" src="./img/refresh.png" alt="Refresh" onclick="reloadPage()">
+                    <img class="browser__specs-img ml-3" src="./img/home-black.png" alt="Homepage" onclick="goHomepage()">
+                </div>
+                <div id="browser__specs-center" class="browser__searchbox col-6 p-1">
+                    <img class="browser__specs-img" src="./img/search.png" alt="Search">
+                    <input class="browser__input ml-2" type="text" value="https://ubuntu.com" placeholder="Search or enter address">
+                </div>
+                <div id="browser__specs-end" class="col-3 align-content-center d-flex justify-content-end">
+                    <img class="browser__specs-img" src="./img/menu.png" alt="Menu">
+                </div>
+            </div>
+            <div id="browser__body" class="browser__body">
+                <iframe class="browser__screen" sandbox="allow-same-origin allow-forms allow-scripts" seamless="" src="http://ubuntu.com/"></iframe>
             </div>
         </div>
     </div>

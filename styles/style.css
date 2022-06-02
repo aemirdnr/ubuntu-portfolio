@@ -80,9 +80,8 @@ header {
 }
 
 .sidebar__item:hover .sidebar__icon {
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
-
 
 /* --------- */
 
@@ -124,6 +123,8 @@ header {
 .console {
     width: 666px;
     position: absolute;
+
+    z-index: 40;
 
     cursor: default;
 }
@@ -188,6 +189,8 @@ header {
     background: transparent;
     color: #ffffff;
     outline: none;
+
+    user-select: auto;
 
     height: 26px;
     border: 0px;
@@ -325,11 +328,11 @@ header {
 }
 
 .files__item:hover {
-    background-color: #be3300;
+    background-color: #df3b00;
 }
 
 .active-file {
-    background-color: #be3300;
+    background-color: #df3b00;
 }
 
 #files__img {
@@ -337,6 +340,73 @@ header {
 }
 
 /* --------- */
+
+/* Browser */
+
+.browser {
+    position: absolute;
+    width: calc(100% - 90px);
+    height: 100vh;
+    cursor: default;
+
+    margin-left: 90px;
+}
+
+.browser__header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    background-color: rgb(50, 50, 50);
+
+    font-family: "Ubuntu Regular";
+    color: rgb(181, 181, 181);
+}
+
+.browser__specs {
+    display: flex;
+    align-content: center;
+
+    background-color: #f0f0f0;
+}
+
+.browser__specs-img {
+    align-self: center;
+    width: 24px;
+    height: 24px;
+}
+
+.browser__body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #FFF;
+}
+
+.browser__screen {
+    border: 0px;
+
+    width: 100%;
+    height: 100%;
+}
+
+.browser__input {
+    width: 100%;
+    border: 0px;
+    
+    outline: none;
+    user-select: auto;
+}
+
+.browser__searchbox {
+    display: flex;
+
+    background-color: #ffffff;
+    border: 1px solid rgb(63, 63, 63);
+    border-radius: 0.4rem;
+}
+
+/* ------ */
 
 /* Boot Screen */
 
