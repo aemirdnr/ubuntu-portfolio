@@ -35,13 +35,13 @@
                 <li class="sidebar__item p-4" onclick="openObject(browser)">
                     <img class="sidebar__icon" src="./img/firefox.png" alt="Firefox logo">
                 </li>
-                <li class="sidebar__item p-4">
+                <li class="sidebar__item p-4" onclick="openObject(signal)">
                     <img class="sidebar__icon" src="./img/signal.png" alt="Signal logo">
                 </li>
-                <li class="sidebar__item p-4">
+                <li class="sidebar__item p-4" onclick="openObject(spotify)">
                     <img class="sidebar__icon" src="./img/spotify.png" alt="Spotify logo">
                 </li>
-                <li class="sidebar__item p-4">
+                <li class="sidebar__item p-4" onclick="openObject(netflix)">
                     <img class="sidebar__icon" src="./img/netflix.png" alt="Netflix logo">
                 </li>
             </ul>
@@ -251,6 +251,57 @@
             <div id="browser__body" class="browser__body">
                 <iframe class="browser__screen" sandbox="allow-same-origin allow-forms allow-scripts" seamless="" src="http://ubuntu.com/"></iframe>
             </div>
+        </div>
+        <div id="signal" class="signal" style="display: block;">
+            <div class="signal__header">
+                <b class="mx-auto align-self-center">Signal</b>
+                <div class="d-flex p-2">
+                    <div class="header__button" onclick="buttonMinimize(signal)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                    <div class="header__button ml-1 header__button-exit" onclick="buttonClose(signal)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                </div>
+            </div>
+            <div class="signal__body">
+                <div class="signal__sidebar">
+                    <ul class="signal__items p-3 m-0">
+                        <li class="signal__item py-2 px-3" onclick="showChat()">
+                            <div class="signal__item-start">
+                                <img class="mx-auto align-self-center" src="./img/notes.png" alt="Notes">
+                            </div>
+                            <div class="signal__item-end">
+                                <b class="ml-3">Note to self</b>
+                                <p class="ml-3 mb-0">Take note</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="signal__main">
+                    <div id="signal__default" class="signal__screen text-center align-content-center" style="display: flex;">
+                        <div class="position-relative d-flex flex-column" style="top: 275px;">
+                            <img class="signal__logo" src="./img/signal2.png" alt="Signal Logo">
+                            <b class="mt-4">Welcome to Signal</b>
+                        </div>
+                    </div>
+                    <div id="signal__chat" class="signal__screen justify-content-end" style="display: none;">
+                        <ul id="chat__list" class="chat__list">
+                        </ul>
+                        <div class="signal__input mx-auto mb-1 px-3">
+                            <input type="text" name="signal__input" id="signal__input" class="p-2" placeholder="   Send a message" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="spotify" class="spotify" style="display: none;">
+            <div class="spotify__header"></div>
+            <div class="spotify__body"></div>
+        </div>
+        <div id="netflix" class="netflix" style="display: none;">
+            <div class="netflix__header"></div>
+            <div class="netflix__body"></div>
         </div>
     </div>
     <script src="./js/main.js"></script>

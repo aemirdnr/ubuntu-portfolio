@@ -19,9 +19,13 @@ const files = document.querySelector("#files")
 //Apps
 const browser = document.querySelector("#browser")
 const browserInput = document.querySelector(".browser__input")
-//Signal
-//Spotify
-//Netflix
+
+const signal = document.querySelector("#signal")
+const signalInput = document.getElementById("signal__input")
+const chatList = document.getElementById("chat__list")
+
+const spotify = document.querySelector("#spotify")
+const netflix = document.querySelector("#netflix")
 
 dragElement(console)
 dragElement(readMe)
@@ -106,6 +110,12 @@ function buttonClose(id) {
     consoleInput.value = ""
     consoleOutput.innerHTML = ""
   }
+  else if (id == signal) {
+    document.querySelectorAll(".chat__message").forEach(e => e.remove())
+
+    document.getElementById("signal__default").style.display = "flex"
+    document.getElementById("signal__chat").style.display = "none"
+  }
 }
 
 function buttonMinimize(id) {
@@ -189,6 +199,8 @@ consoleInput.addEventListener("keyup", function (e){
     else {
       consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Command not found. Write 'help' to see commands.<br>\n"
     }
+    //Move to end of overflow
+    consoleOutput.scrollTop = consoleOutput.scrollHeight
     //Clear after press ENTER
     consoleInput.value = ""
 }
@@ -235,3 +247,29 @@ function goHomepage() {
 function reloadPage() {
   browserFrame.src = browserFrame.src
 }
+
+//Signal Functions
+function showChat() {
+  document.getElementById("signal__default").style.display = "none"
+  document.getElementById("signal__chat").style.display = "flex"
+}
+
+
+signalInput.addEventListener("keyup", function (e){
+  if (e.key === 'Enter') {
+    if (signalInput.value.length != 0) {
+      //HTML DOM - Create message baloon
+      const object = document.createElement("li")
+
+      object.classList.add("chat__message", "p-3")
+      object.innerHTML = signalInput.value
+      chatList.appendChild(object)
+
+      //Go to end of the overflow-x
+      chatList.scrollTop = chatList.scrollHeight
+
+      //Clean to input
+      signalInput.value = ""
+    }
+  }
+})
