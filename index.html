@@ -181,12 +181,12 @@
                 </div>
                 <div id="pictures__body" class="files__screen" style="display: none;">
                     <ul class="desktop__files d-flex m-0 p-0">
-                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee1.jpg', '_blank')">
-                            <img id="file__icon" src="./img/ee1.jpg" alt="EMPTY">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee.jpg', '_blank')">
+                            <img id="file__icon" src="./img/ee.jpg" alt="EMPTY">
                             <b class="file__text mt-1">image1.jpg</b>
                         </li>
-                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee2.jpg', '_blank')">
-                            <img id="file__icon" src="./img/ee2.jpg" alt="EMPTY">
+                        <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/fi.jpg', '_blank')">
+                            <img id="file__icon" src="./img/fi.jpg" alt="EMPTY">
                             <b class="file__text mt-1">image2.jpg</b>
                         </li>
                     </ul>
@@ -252,7 +252,7 @@
                 <iframe class="browser__screen" sandbox="allow-same-origin allow-forms allow-scripts" seamless="" src="http://ubuntu.com/"></iframe>
             </div>
         </div>
-        <div id="signal" class="signal" style="display: block;">
+        <div id="signal" class="signal" style="display: none;">
             <div class="signal__header">
                 <b class="mx-auto align-self-center">Signal</b>
                 <div class="d-flex p-2">
@@ -295,9 +295,201 @@
                 </div>
             </div>
         </div>
-        <div id="spotify" class="spotify" style="display: none;">
-            <div class="spotify__header"></div>
-            <div class="spotify__body"></div>
+        <div id="spotify" class="spotify" style="display: flex;">
+            <div class="spotify__header">
+                <b class="mx-auto align-self-center">Spotify</b>
+                <div class="d-flex p-2">
+                    <div class="header__button" onclick="buttonMinimize(spotify)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                    <div class="header__button ml-1 header__button-exit" onclick="buttonClose(spotify)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                </div>
+            </div>
+            <div class="spotify__body">
+                <div class="row w-100 mx-auto">
+                    <div id="spotify__sidebar" class="col-2 p-0">
+                        <ul class="d-flex flex-column p-4 m-0">
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <svg id="home-icon" role="img" height="24" width="24"viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 00-1 0L4 7.577V20h4.5v-6a1 1 0 011-1h5a1 1 0 011 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 013 0l7.5 4.33a2 2 0 011 1.732V21a1 1 0 01-1 1h-6.5a1 1 0 01-1-1v-6h-3v6a1 1 0 01-1 1H3a1 1 0 01-1-1V7.577a2 2 0 011-1.732l7.5-4.33z"></path></svg>
+                                <svg id="home-active-icon" role="img" height="24" width="24"style="display: none;" viewBox="0 0 24 24"><path d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"></path></svg>
+                                <b class="ml-3 font-weight-bolder">Home</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2 mt-2">
+                                <svg id="search-icon" role="img" height="24" width="24"viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"></path></svg>
+                                <svg id="search-active-icon" role="img" height="24" width="24" style="display: none;" viewBox="0 0 24 24"><path d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"></path><path d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 01-2.077 5.816l4.344 4.344a1 1 0 01-1.414 1.414l-4.353-4.353a9.454 9.454 0 01-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"></path></svg>
+                                <b class="ml-3 font-weight-bolder">Search</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2 mt-2">
+                                <svg id="library-icon" role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>
+                                <svg id="library-active-icon" role="img" height="24" width="24" style="display: none;" viewBox="0 0 24 24"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM15.5 2.134A1 1 0 0014 3v18a1 1 0 001 1h6a1 1 0 001-1V6.464a1 1 0 00-.5-.866l-6-3.464zM9 2a1 1 0 00-1 1v18a1 1 0 102 0V3a1 1 0 00-1-1z"></path></svg>
+                                <b class="ml-3 font-weight-bolder">Your Library</b>
+                            </li>
+                        </ul>
+                        <div class="d-flex flex-column px-4">
+                            <div class="spotify__object d-flex p-2">
+                                <div class="create-playlist">
+                                    <img class="align-self-center mx-auto" src="./img/plus.png" alt="Create" style="width: 12px; height: 12px;">
+                                </div>
+                                <b class="ml-3 font-weight-bolder">Create Playlist</b>
+                            </div>
+                            <div class="spotify__object d-flex p-2 mt-2">
+                                <div class="liked-songs">
+                                    <svg class="align-self-center mx-auto" role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 jgfuCe"><path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path></svg>
+                                </div>
+                                <b class="ml-3 font-weight-bolder">Liked Songs</b>
+                            </div>
+                        </div>
+                        <hr class="bg-dark w-75">
+                        <ul class="d-flex flex-column px-4 m-0">
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <b>NORDIC DREAMS</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <b>NECTAR OF THE GODS</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <b>LEGENDS</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <b>BLUES</b>
+                            </li>
+                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                                <b>CHILL</b>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="spotify__main" class="spotify__main col-10 py-3 px-4">
+                        <div class="spotify__user ml-auto">
+                            <img class="rounded-circle align-self-center ml-1" src="./img/user.jpeg" alt="Profile Image" style="width: 32px; height: 32px;">
+                            <b class="align-self-center ml-2 mr-3">emir</b>
+                        </div>
+                        <h5 class="text-light font-weight-bolder">Recently played</h5>
+                        <div class="mt-4">
+                            <div class="row justify-content-center text-center text-light">
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab67616100005174055af157ce22d49790ed7d07" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">VIIVI</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab676161000051748da08ed50f6b364961cd8713" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">SINI YASEMIN</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab6761610000517478a4384445f85ae90c11e216" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">BEHM</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab67616100005174a00b11c129b27a88fc72f36b" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Eminem</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab67616100005174644a971fd6a129e4105e0a80" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Ufo361</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="text-light font-weight-bolder mt-5">Your favorite artists</h5>
+                        <div class="mt-4">
+                            <div class="row justify-content-center text-center text-light">
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/fd4265fed33cecf23270aa27fe561a96ba2df776" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Bobby Vinton</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab6761610000517478a4384445f85ae90c11e216" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">BEHM</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab6761610000f1789a93e273380982dff84c0d7c" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Elvis Presley</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab6761610000f178c152fc4fed805e8a82ed950b" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Billy Joel</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img mx-auto" src="https://i.scdn.co/image/ab6772690000dd22f79ca05dcc1581c712bf3658" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">Bob Dylan</b>
+                                        <span class="align-self-start mb-2">Artist</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h5 class="text-light font-weight-bolder mt-5">Your playlists</h5>
+                        <div class="mt-4 mb-5">
+                            <div class="row justify-content-center text-center text-light">
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img rounded-sm mx-auto" src="./img/ee.jpg" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">NORDIC DREAMS</b>
+                                        <span class="align-self-start mb-2">By emir</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img rounded-sm mx-auto" src="https://i.scdn.co/image/ab67706c0000bebba6da76bc27dd6deb4efdf9fb" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">LEGENDS</b>
+                                        <span class="align-self-start mb-2">By emir</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img rounded-sm mx-auto" src="https://i.scdn.co/image/ab6761610000517478a4384445f85ae90c11e216" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">BLUES</b>
+                                        <span class="align-self-start mb-2">By emir</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img rounded-sm mx-auto" src="https://i.scdn.co/image/ab67616100005174a00b11c129b27a88fc72f36b" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">NECTAR OF THE GODS</b>
+                                        <span class="align-self-start mb-2">By emir</span>
+                                    </div>
+                                </div>
+                                <div class="col-2 singer-card mx-2 mb-3">
+                                    <img class="singer-img rounded-sm mx-auto" src="https://i.scdn.co/image/ab6761610000f1789a93e273380982dff84c0d7c" alt="Singer Picture">
+                                    <div class="d-flex flex-column px-2">
+                                        <b class="align-self-start mt-3">CHILL</b>
+                                        <span class="align-self-start mb-2">By emir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spotify__footer">
+            </div>
         </div>
         <div id="netflix" class="netflix" style="display: none;">
             <div class="netflix__header"></div>
