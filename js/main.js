@@ -273,3 +273,13 @@ signalInput.addEventListener("keyup", function (e){
     }
   }
 })
+
+document.getElementById("song-slider").oninput = function() {
+  var value = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, #1db954 0%, #1db954 ' + value + '%, hsla(0,0%,100%,0.3) ' + value + '%, hsla(0,0%,100%,0.3) 100%)'
+};
+
+document.getElementById("volume-slider").oninput = function() {
+  var value = (this.value-this.min)/(this.max-this.min)*100
+  this.style.background = 'linear-gradient(to right, #1db954 0%, #1db954 ' + value + '%, hsla(0,0%,100%,0.3) ' + value + '%, hsla(0,0%,100%,0.3) 100%)'
+};
