@@ -295,7 +295,7 @@
                 </div>
             </div>
         </div>
-        <div id="spotify" class="spotify" style="display: flex;">
+        <div id="spotify" class="spotify" style="display: none;">
             <div class="spotify__header">
                 <b class="mx-auto align-self-center">Spotify</b>
                 <div class="d-flex p-2">
@@ -534,9 +534,83 @@
                 </div>
             </div>
         </div>
-        <div id="netflix" class="netflix" style="display: none;">
-            <div class="netflix__header"></div>
-            <div class="netflix__body"></div>
+        <div id="netflix" class="netflix" style="display: block;">
+            <div class="netflix__header">
+                <b class="mx-auto align-self-center">Netflix</b>
+                <div class="d-flex p-2">
+                    <div class="header__button" onclick="buttonMinimize(netflix)">
+                        <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
+                    </div>
+                    <div class="header__button ml-1 header__button-exit" onclick="buttonClose(netflix)">
+                        <img id="header__button-close" class="header__button-img" src="./img/close.png" alt="Close">
+                    </div>
+                </div>
+            </div>
+            <div class="netflix__body">
+                <div class="netflix__sidebar">
+                    <ul id="netflix__sidebar-list" class="d-flex flex-column align-items-center justify-content-center p-0 m-0">
+                        <li class="netflix__sidebar-item">
+                            <div class="netflix__sidebar-box">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="24" height="24"
+                                viewBox="0 0 48 48"
+                                style=" fill: white;">
+                                <path d="M 23.951172 4 A 1.50015 1.50015 0 0 0 23.072266 4.3222656 L 8.859375 15.519531 C 7.0554772 16.941163 6 19.113506 6 21.410156 L 6 40.5 C 6 41.863594 7.1364058 43 8.5 43 L 18.5 43 C 19.863594 43 21 41.863594 21 40.5 L 21 30.5 C 21 30.204955 21.204955 30 21.5 30 L 26.5 30 C 26.795045 30 27 30.204955 27 30.5 L 27 40.5 C 27 41.863594 28.136406 43 29.5 43 L 39.5 43 C 40.863594 43 42 41.863594 42 40.5 L 42 21.410156 C 42 19.113506 40.944523 16.941163 39.140625 15.519531 L 24.927734 4.3222656 A 1.50015 1.50015 0 0 0 23.951172 4 z M 24 7.4101562 L 37.285156 17.876953 C 38.369258 18.731322 39 20.030807 39 21.410156 L 39 40 L 30 40 L 30 30.5 C 30 28.585045 28.414955 27 26.5 27 L 21.5 27 C 19.585045 27 18 28.585045 18 30.5 L 18 40 L 9 40 L 9 21.410156 C 9 20.030807 9.6307412 18.731322 10.714844 17.876953 L 24 7.4101562 z"></path>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="netflix__sidebar-item mt-4">
+                            <div class="netflix__sidebar-box">
+                                <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABHklEQVRoge2ZTRLCIAyFg+Mp1AN11YN47HY4x3PhoPQHGxwYQppvpYUGXh5Jp0rEBMAAYMaXCcDAvb91/HihCVumXuLHCwEAUt9bx7+U2khrPkIAjAD8jr0/M5Oan8sf8T2AMcxz0Q2eiG5Hyp1zLizASFQ2mfG9c+6xuMLNDHd+Lrnx1+P6aoTBTLTJxFxwL2XiM6wcsOz1NR6I7PjJ/ZY+87WxGpHOdX2hp+MVo9eR8GSVzvrkqHHEhEhjUyMpWnUzbs2ez5HAXoaCWzXGuKhxxIRIQ42Q7GI/eo8uPcblvI5Y+62MCZGGGiHWfqVh7VcaJkQaaoRY+5UG2xHpP6WqccSESCOuEU9E987+6PHhQ+zIMx7oAE/vPRsieQEp3xMjpC6JfwAAAABJRU5ErkJggg==">
+                            </div>
+                        </li>
+                        <li class="netflix__sidebar-item mt-4">
+                            <div class="netflix__sidebar-box">
+                                <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAU0lEQVRYhe2VIRIAIAzDOo7/f3koDCBAsJpE7WaW60QlADATc8jMLD0cEZLUKo+e6Otimv1iTdqeAAIIIIAAAlsXVLeiPQE719X7+prbWucFAHYGX/oQI/z5wT0AAAAASUVORK5CYII=">
+                            </div>
+                        </li>
+                        <li class="netflix__sidebar-item mt-4">
+                            <div class="netflix__sidebar-box">
+                                <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAj0lEQVRoge3XwQqAIBCEYTd6/1feTh0SNgwSx+H/jnZoBx3E1gC8iX4hM3PFIF9FxGP2Y9UgfzurD33ie6f69Vmq/1UnxmZHbIKUR0ul9KNz+O/IaMlmo+y7ouxqKLsamyCUXQ1lV2MThDe7Gt7samyCcLOr4WZXYxOEsquh7GpsglB2NZRdjU0Q3uwA9nIBmIaEPit7enQAAAAASUVORK5CYII=">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="netflix__main">
+                    <div id="netflix-home" class="netflix-screen">
+                        <b></b>
+                        <div class="netflix__cards mt-4">
+                            <div class="netflix__card">
+                                <img class="netflix__card-img" src="./img/netflix/iron-man-1.png" alt="Iron Man 1">
+                                <div class="netflix__card-items">
+                                    <span>Iron Man 1</span>
+                                </div>
+                            </div>
+                            <div class="netflix__card">
+                                <img class="netflix__card-img" src="./img/netflix/iron-man-2.png" alt="Iron Man 1">
+                                <div class="netflix__card-items">
+                                    <span>Iron Man 2</span>
+                                </div>
+                            </div>
+                            <div class="netflix__card">
+                                <img class="netflix__card-img" src="./img/netflix/iron-man-3.png" alt="Iron Man 1">
+                                <div class="netflix__card-items">
+                                    <span>Iron Man 3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="netflix-soon" class="netflix-screen" style="display: none;">
+
+                    </div>
+                    <div id="netflix-tv" class="netflix-screen" style="display: none;">
+
+                    </div>
+                    <div id="netflix-movie" class="netflix-screen" style="display: none;">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="./js/main.js"></script>
