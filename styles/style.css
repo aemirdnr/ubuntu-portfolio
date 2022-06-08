@@ -27,6 +27,16 @@ ul {
     src: url("../fonts/Ubuntu-Regular.ttf");
 }
 
+.no-scrollbar {
+    scrollbar-width: none; /* Firefox */
+
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
 /* Header */
 
 header {
@@ -838,7 +848,7 @@ header {
     flex-direction: column;
     justify-content: center;
 
-    width: 100px;
+    min-width: 100px;
     height: calc(100vh - 73px);
 
     background-color: #181818;
@@ -894,56 +904,102 @@ header {
 
     width: 100%;
     height: 100%;
+
     overflow-y: auto;
+}
+
+.netflix-screen b {
+    color: #FFF;
+    font-size: 18px;
 }
 
 .netflix__cards {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+    position: relative;
 
-    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: stretch;
+
     padding: 16px;
+    gap: 24px;
+    width: calc(100% - 110px);
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.netflix__cards::-webkit-scrollbar {
+    display: none;
 }
 
 .netflix__card {
-    width: 230px;
-    height: 320px;
+    display: inline-block;
+
+    min-width: 230px;
+    min-height: 320px;
 
     background-color: #000000;
-    transition: border 200ms ease-in;
+    transition: opacity 200ms ease-in;
+}
+
+.netflix__card:hover .netflix__card-img{
+    opacity: 0.3;
 }
 
 .netflix__card-img {
-    position: absolute;
     width: 230px;
     height: 320px;
-
-    opacity: 1;
-    transition: opacity 200ms ease-in;
-}
-
-.netflix__card:hover .netflix__card-img {
-    opacity: 0.4;
 }
 
 .netflix__card-items {
-    position: relative;
     display: flex;
+    position: absolute;
+
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
+    z-index: 5;
     opacity: 0;
     padding: 16px;
+    
+    width: 230px;
+    height: 320px;
 
     color: #FFF;
-    transition: opacity 200ms ease-in;
+    transition: opacity 350ms ease-in;
+}
+
+.netflix__card-items span {
+    font-size: 21px;
+    font-weight: 800;
+
+    text-align: center;
+    white-space:normal;
 }
 
 .netflix__card:hover .netflix__card-items{
     opacity: 1;
+}
+
+.netflix__card-button {
+    display: block;
+    cursor: pointer;
+
+    padding: 8px;
+    border-radius: 50%;
+    opacity: 0.9;
+
+    background-color: red;
+    transition: opacity 200ms ease-in-out, box-shadow 250ms ease-in-out;
+}
+
+.netflix__card-button:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 32px red;
 }
 
 /* -------- */
