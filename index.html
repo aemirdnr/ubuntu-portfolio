@@ -549,7 +549,7 @@
             <div class="netflix__body">
                 <div class="netflix__sidebar">
                     <ul id="netflix__sidebar-list" class="d-flex flex-column align-items-center justify-content-center p-0 m-0">
-                        <li class="netflix__sidebar-item">
+                        <li id="home-screen" class="netflix__sidebar-item netflix__sidebar-active" onclick="changeScreen('home')">
                             <div class="netflix__sidebar-box">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                                 width="24" height="24"
@@ -559,17 +559,17 @@
                                 </svg>
                             </div>
                         </li>
-                        <li class="netflix__sidebar-item mt-4">
+                        <li id="soon-screen" class="netflix__sidebar-item mt-4" onclick="changeScreen('soon')">
                             <div class="netflix__sidebar-box">
                                 <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAABHklEQVRoge2ZTRLCIAyFg+Mp1AN11YN47HY4x3PhoPQHGxwYQppvpYUGXh5Jp0rEBMAAYMaXCcDAvb91/HihCVumXuLHCwEAUt9bx7+U2khrPkIAjAD8jr0/M5Oan8sf8T2AMcxz0Q2eiG5Hyp1zLizASFQ2mfG9c+6xuMLNDHd+Lrnx1+P6aoTBTLTJxFxwL2XiM6wcsOz1NR6I7PjJ/ZY+87WxGpHOdX2hp+MVo9eR8GSVzvrkqHHEhEhjUyMpWnUzbs2ez5HAXoaCWzXGuKhxxIRIQ42Q7GI/eo8uPcblvI5Y+62MCZGGGiHWfqVh7VcaJkQaaoRY+5UG2xHpP6WqccSESCOuEU9E987+6PHhQ+zIMx7oAE/vPRsieQEp3xMjpC6JfwAAAABJRU5ErkJggg==">
                             </div>
                         </li>
-                        <li class="netflix__sidebar-item mt-4">
+                        <li id="tv-screen" class="netflix__sidebar-item mt-4" onclick="changeScreen('tv')">
                             <div class="netflix__sidebar-box">
                                 <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAAU0lEQVRYhe2VIRIAIAzDOo7/f3koDCBAsJpE7WaW60QlADATc8jMLD0cEZLUKo+e6Otimv1iTdqeAAIIIIAAAlsXVLeiPQE719X7+prbWucFAHYGX/oQI/z5wT0AAAAASUVORK5CYII=">
                             </div>
                         </li>
-                        <li class="netflix__sidebar-item mt-4">
+                        <li id="movie-screen" class="netflix__sidebar-item mt-4" onclick="changeScreen('movie')">
                             <div class="netflix__sidebar-box">
                                 <img style="width: 24px; height: 24px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAAj0lEQVRoge3XwQqAIBCEYTd6/1feTh0SNgwSx+H/jnZoBx3E1gC8iX4hM3PFIF9FxGP2Y9UgfzurD33ie6f69Vmq/1UnxmZHbIKUR0ul9KNz+O/IaMlmo+y7ouxqKLsamyCUXQ1lV2MThDe7Gt7samyCcLOr4WZXYxOEsquh7GpsglB2NZRdjU0Q3uwA9nIBmIaEPit7enQAAAAASUVORK5CYII=">
                             </div>
@@ -733,14 +733,425 @@
                             </div>
                         </div>
                     </div>
-                    <div id="netflix-soon" class="netflix-screen" style="display: none;">
-
+                    <div id="netflix-soon" class="netflix-screen justify-content-between" style="display: none;">
+                        <div id="intro-mandalorian" class="netflix-intro">
+                            <img class="movie-intro-img" src="./img/netflix/mandalorian-intro.jpg" alt="The Mandalorian Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">The Mandalorian</b>
+                                <p class="mt-4">The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div>   
+                        </div>
+                        <div id="intro-dune" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/dune-intro.jpg" alt="Dune Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Dune</b>
+                                <p class="mt-4">A noble family becomes embroiled in a war for control over the galaxy's most valuable asset while its heir becomes troubled by visions of a dark future.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-johnwick" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/john-wick-intro.jpg" alt="John Wick Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">John Wick</b>
+                                <p class="mt-4">An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-lucifer" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/lucifer-intro.jpg" alt="Lucifer Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Lucifer</b>
+                                <p class="mt-4">Lucifer Morningstar has decided he's had enough of being the dutiful servant in Hell and decides to spend some time on Earth to better understand humanity.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-ozark" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/ozark-intro.jpg" alt="Ozark Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Ozark</b>
+                                <p class="mt-4">A financial advisor drags his family from Chicago to the Missouri Ozarks, where he must launder money to appease a drug boss.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-rick" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/rick-intro.jpg" alt="Rick And Morty Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Rick and Morty</b>
+                                <p class="mt-4">An animated series that follows the exploits of a super scientist and his not-so-bright grandson.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-naruto" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/naruto-intro.jpg" alt="Naruto Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Naruto</b>
+                                <p class="mt-4">Naruto Uzumaki, a mischievous adolescent ninja, struggles as he searches for recognition and dreams of becoming the Hokage, the village's leader and strongest ninja.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div id="intro-dexter" class="netflix-intro" style="display: none;">
+                            <img class="movie-intro-img" src="./img/netflix/dexter-intro.jpg" alt="Dexter Background">
+                            <div class="intro-items mt-5 ml-4">
+                                <b class="mt-5">Dexter</b>
+                                <p class="mt-4">America's favorite serial killer, who spends his days solving crimes and nights committing them.</p>
+                                <div class="intro-button mt-5">
+                                    Watch the trailer
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="netflix__cards no-scrollbar px-2">
+                            <div id="card-mandalorian" class="netflix__card netflix__card-active" onclick="activateCard('mandalorian')">
+                                <img class="netflix__card-img" src="./img/netflix/mandalorian.jpg" alt="The Mandalorian">
+                            </div>
+                            <div id="card-dune" class="netflix__card" onclick="activateCard('dune')">
+                                <img class="netflix__card-img" src="./img/netflix/dune.jpg" alt="Dune">
+                            </div>
+                            <div id="card-johnwick" class="netflix__card" onclick="activateCard('johnwick')">
+                                <img class="netflix__card-img" src="./img/netflix/john-wick.jpg" alt="John Wick">
+                            </div>
+                            <div id="card-lucifer" class="netflix__card" onclick="activateCard('lucifer')">
+                                <img class="netflix__card-img" src="./img/netflix/lucifer.jpg" alt="Lucifer">
+                            </div>
+                            <div id="card-ozark" class="netflix__card" onclick="activateCard('ozark')">
+                                <img class="netflix__card-img" src="./img/netflix/ozark.jpg" alt="Ozark">
+                            </div>
+                            <div id="card-rick" class="netflix__card" onclick="activateCard('rick')">
+                                <img class="netflix__card-img" src="./img/netflix/rick.jpg" alt="Rick And Morty">
+                            </div>
+                            <div id="card-naruto" class="netflix__card" onclick="activateCard('naruto')">
+                                <img class="netflix__card-img" src="./img/netflix/naruto.jpg" alt="Naruto">
+                            </div>
+                            <div id="card-dexter" class="netflix__card" onclick="activateCard('dexter')">
+                                <img class="netflix__card-img" src="./img/netflix/dexter.jpg" alt="Dexter">
+                            </div>
+                        </div>
                     </div>
                     <div id="netflix-tv" class="netflix-screen" style="display: none;">
-
+                        <div id="my-favorites" class="mt-4">
+                            <b class="mx-4">My Favorites</b>
+                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Dexter</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/dexter.jpg" alt="Dexter">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Wolf Of Wall Street</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/wolf.jpg" alt="The Wolf Of Wall Street">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Rick And Morty</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/rick.jpg" alt="Rick And Morty">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Iron Man</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/iron-man.jpg" alt="Iron Man">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Harry Potter</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/potter.jpg" alt="Harry Potter">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Fringe</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/fringe.jpg" alt="Fringe">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Forever</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/forever.jpg" alt="Forever">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Sherlock</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/sherlock.jpg" alt="Sherlock">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="watch-now" class="mt-4">
+                            <b class="mx-4">Watch Now</b>
+                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Mr. Robot</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/mr-robot.jpg" alt="Mr. Robot">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Fast And The Furious</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/fast-and-furious.jpg" alt="The Fast And Furious">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Lucifer</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/lucifer.jpg" alt="Lucifer">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Tomorrow War</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/the-tomorrow-war.jpg" alt="The Tomorrow War">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Naruto</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/naruto.jpg" alt="Naruto">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Death Note</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/death-note.jpg" alt="Death Note">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Breaking Bad</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/breaking-bad.jpg" alt="Breaking Bad">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Big Bang Theory</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/bigbang.jpg" alt="The Big Bang Theory">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div id="netflix-movie" class="netflix-screen" style="display: none;">
-
+                        <div id="my-favorites" class="mt-4">
+                            <b class="mx-4">My Favorites</b>
+                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Dexter</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/dexter.jpg" alt="Dexter">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Wolf Of Wall Street</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/wolf.jpg" alt="The Wolf Of Wall Street">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Rick And Morty</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/rick.jpg" alt="Rick And Morty">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Iron Man</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/iron-man.jpg" alt="Iron Man">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Harry Potter</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/potter.jpg" alt="Harry Potter">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Fringe</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/fringe.jpg" alt="Fringe">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Forever</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/forever.jpg" alt="Forever">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Sherlock</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/sherlock.jpg" alt="Sherlock">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="watch-now" class="mt-4">
+                            <b class="mx-4">Watch Now</b>
+                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Mr. Robot</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/mr-robot.jpg" alt="Mr. Robot">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Fast And The Furious</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/fast-and-furious.jpg" alt="The Fast And Furious">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Lucifer</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/lucifer.jpg" alt="Lucifer">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Tomorrow War</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/the-tomorrow-war.jpg" alt="The Tomorrow War">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Naruto</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/naruto.jpg" alt="Naruto">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Death Note</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/death-note.jpg" alt="Death Note">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>Breaking Bad</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/breaking-bad.jpg" alt="Breaking Bad">
+                                </div>
+                                <div class="netflix__card">
+                                    <div class="netflix__card-items">
+                                        <span>The Big Bang Theory</span>
+                                        <div class="netflix__card-button">
+                                            <img src="./img/play.png" alt="Play Button">
+                                        </div>
+                                    </div>
+                                    <img class="netflix__card-img" src="./img/netflix/bigbang.jpg" alt="The Big Bang Theory">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -274,6 +274,7 @@ signalInput.addEventListener("keyup", function (e){
   }
 })
 
+
 //Spotify Functions
 document.getElementById("song-slider").oninput = function() {
   var value = (this.value-this.min)/(this.max-this.min)*100
@@ -284,3 +285,48 @@ document.getElementById("volume-slider").oninput = function() {
   var value = (this.value-this.min)/(this.max-this.min)*100
   this.style.background = 'linear-gradient(to right, #1db954 0%, #1db954 ' + value + '%, hsla(0,0%,100%,0.3) ' + value + '%, hsla(0,0%,100%,0.3) 100%)'
 };
+
+
+//Netflix Functionss
+function changeScreen(id) {
+  let screen = document.getElementById("netflix-" + id)
+  let screens = document.querySelectorAll(".netflix-screen")
+
+  let sidebarButton = document.getElementById(id + "-screen")
+  let sidebarButtons = document.querySelectorAll(".netflix__sidebar-item")
+
+  if (screen.style.display != "flex") {
+
+    sidebarButtons.forEach(item => {
+      item.classList.remove("netflix__sidebar-active")
+    })
+
+    sidebarButton.classList.add("netflix__sidebar-active")
+
+    screens.forEach(screen => {
+      screen.style.display = "none"
+    })
+
+    screen.style.display = "flex"
+  }
+}
+
+function activateCard(id) {
+  let card = document.getElementById("card-" + id)
+  let cards = document.querySelectorAll(".netflix__card")
+
+  let intro = document.getElementById("intro-" + id)
+  let intros = document.querySelectorAll(".netflix-intro")
+
+  cards.forEach(item => {
+    item.classList.remove("netflix__card-active")
+  })
+
+  intros.forEach(item => {
+    item.style.display = "none"
+  })
+
+  card.classList.add("netflix__card-active")
+
+  intro.style.display = "block"
+}
