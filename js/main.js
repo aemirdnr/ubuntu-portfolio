@@ -330,3 +330,13 @@ function activateCard(id) {
 
   intro.style.display = "block"
 }
+
+//scroll cards using mouse wheel 
+let scrollContainers = document.querySelectorAll(".netflix__cards")
+
+scrollContainers.forEach(scrollContainer => {
+  scrollContainer.addEventListener("wheel", (evt) => {
+    evt.preventDefault()
+    scrollContainer.scrollLeft += evt.deltaY
+  })
+})

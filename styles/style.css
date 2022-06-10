@@ -945,7 +945,7 @@ header {
     display: inline-block;
 
     min-width: 230px;
-    min-height: 320px;
+    height: 320px;
 
     background-color: #000000;
     transition: opacity 200ms ease-in;
@@ -1018,6 +1018,10 @@ header {
     opacity: 0.4;
 }
 
+#netflix-soon .netflix__cards {
+    justify-self: flex-end;
+}
+
 #netflix-soon .netflix__card {
     transform: scale(0.8);
     cursor: pointer;
@@ -1036,12 +1040,8 @@ header {
     display: flex;
     flex-direction: column;
     position: relative;
-
-    align-self: flex-start;
-    justify-self: start;
-
-    top: 38px;
-    padding: 16px;
+    
+    gap: 24px;
 }
 
 .intro-items b {
