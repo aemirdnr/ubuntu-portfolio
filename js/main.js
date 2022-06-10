@@ -96,10 +96,11 @@ function openObject(id) {
     object.style.display = "none"
   } else {
     object.style.display = "block"
-  }
-
-  if (id == console) {
-    consoleInput.focus()
+    if (id == console || id == files || id == readme) {
+      consoleInput.focus()
+      object.style.top = "20vh"
+      object.style.left = "30vh"
+    }
   }
 }
 
@@ -145,8 +146,8 @@ function buttonFullscreen(id) {
       consoleInput.focus()
       dragElement(console)
   
-      console.style.top = "25%"
-      console.style.left = "32%"
+      console.style.top = "30vh"
+      console.style.left = "30vh"
       console.style.width = "666px"
       consoleBody.style.height = "400px"
       consoleOutput.style.maxHeight = "374px"
@@ -176,17 +177,47 @@ function buttonFullscreen(id) {
   }
 }
 
+function openApp(id) {
+  let app = document.getElementById(id.id)
+  let apps = document.querySelectorAll(".app")
+
+  if (app.style.display != "none") {
+    app.style.display = "none"
+  } else {
+    apps.forEach(app => {
+      app.style.display = "none"
+    })
+
+    app.style.display = "block"
+  }
+}
+
 //Console commands
 consoleInput.addEventListener("keyup", function (e){
   if (e.key === 'Enter' || e.keyCode === 13) {
     if (consoleInput.value == "whoami") {
-      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Hi, I'm Emir.<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Hey, this is Emir. Studied Computer Programming at Kocatepe University. Interested in Web Development, mostly front-end. Currently improving myself on JS and React. If you wanna reach out to me write 'contact' to console.<br>\n"
     }
     else if (consoleInput.value == "contact") {
-      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "You can reach me on e-mail, my e-mail adress is aemirdnr@gmail.com<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Contact via Mail: aemirdnr@gmail.com<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Contact via Mail 2: aemirdnr@protonmail.com<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Write 'social' to see my social links.<br>\n"
+    }
+    else if (consoleInput.value == "social") {
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Linkedin: <a href='https://linkedin.com/in/aemirdnr' target='_blank'>[GO]<a><br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Github: <a href='https://github.com/aemirdnr' target='_blank'>[GO]<a><br>\n"
+    }
+    else if (consoleInput.value == "linkedin") {
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Linkedin: <a href='https://linkedin.com/in/aemirdnr' target='_blank'>[GO]<a><br>\n"
+    }
+    else if (consoleInput.value == "certificates") {
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Cybersecurity Essentials - Cisco <a href='https://www.credly.com/badges/2bf82e5d-8815-4a59-8999-ea05758b3aeb/public_url' target='_blank'>[GO]<a><br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Practical Ethical Hacking  - TCM Security <a href='https://drive.google.com/file/d/1TvpNLG47giQiyWu0SpPEr5Cm6NessOQ0/view' target='_blank'>[GO]<a><br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "ICS Cybersecurity (401V) - CISA <a href='https://drive.google.com/file/d/1PgJvOS4_W7NyvxGquQ1g7G71o1EJVTeP/view' target='_blank'>[GO]<a><br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "ICS Cybersecurity (301V) - CISA <a href='https://drive.google.com/file/d/15R3Ty2mQMaWfLpwmqUxSPUf760vVshb4/view' target='_blank'>[GO]<a><br>\n"
     }
     else if (consoleInput.value == "help") {
-      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Commands: whoami, contact, help, clear<br>\n"
+      consoleOutput.innerHTML += "aemirdnr@ubuntu: ~$ " + "Commands: whoami, contact, social, linkedin, certificates, help, clear, exit.<br>\n"
     }
     else if (consoleInput.value == "clear") {
       consoleOutput.innerHTML = ""

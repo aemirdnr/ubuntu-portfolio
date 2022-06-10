@@ -21,27 +21,24 @@
                 <img id="terminal-img" src="./img/console.png" alt="Console">
                 <h6 id="terminal__text" class="nav__text m-0 ml-2">Terminal</h6>
             </div>
-            <div class="nav__date p-2">
+            <div class="nav__date mx-auto p-2">
                 <h6 id="date" class="nav__text m-0"></h6>
-            </div>
-            <div class="nav__functions p-2">
-                <img id="functions-img" src="./img/shutdown.png" alt="Shutdown">
             </div>
         </nav>
     </header>
     <div id="screen" class="d-flex">
         <div class="sidebar">
             <ul class="sidebar__list m-0 p-0">
-                <li class="sidebar__item p-4" onclick="openObject(browser)">
+                <li class="sidebar__item p-4" onclick="openApp(browser)">
                     <img class="sidebar__icon" src="./img/firefox.png" alt="Firefox logo">
                 </li>
-                <li class="sidebar__item p-4" onclick="openObject(signal)">
+                <li class="sidebar__item p-4" onclick="openApp(signal)">
                     <img class="sidebar__icon" src="./img/signal.png" alt="Signal logo">
                 </li>
-                <li class="sidebar__item p-4" onclick="openObject(spotify)">
+                <li class="sidebar__item p-4" onclick="openApp(spotify)">
                     <img class="sidebar__icon" src="./img/spotify.png" alt="Spotify logo">
                 </li>
-                <li class="sidebar__item p-4" onclick="openObject(netflix)">
+                <li class="sidebar__item p-4" onclick="openApp(netflix)">
                     <img class="sidebar__icon" src="./img/netflix.png" alt="Netflix logo">
                 </li>
             </ul>
@@ -71,7 +68,7 @@
                     <div class="header__button ml-1" onclick="buttonMinimize(console)">
                         <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
                     </div>
-                    <div class="header__button ml-1" onclick="buttonFullscreen(console)">
+                    <div class="header__button d-none d-md-flex ml-1" onclick="buttonFullscreen(console)">
                         <img id="header__button-fulscreen" class="header__button-img" src="./img/fullscreen.png" alt="Fullscreen">
                     </div>
                 </div>
@@ -133,7 +130,7 @@
                     </ul>
                 </div>
                 <div id="home__body" class="files__screen" style="display: flex;">
-                    <ul class="desktop__files d-flex m-0 p-0">
+                    <ul class="desktop__files d-flex flex-column flex-md-row m-0 p-0">
                         <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="openObject(readme)">
                             <img id="file__icon" src="./img/notepad.png" alt="Notepad">
                             <b class="file__text mt-1">ReadMe</b>
@@ -145,7 +142,7 @@
                     </ul>
                 </div>
                 <div id="docs__body" class="files__screen" style="display: none;">
-                    <ul class="desktop__files d-flex m-0 p-0">
+                    <ul class="desktop__files d-flex flex-column flex-md-row m-0 p-0">
                         <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://drive.google.com/file/d/1TvpNLG47giQiyWu0SpPEr5Cm6NessOQ0/view', '_blank')">
                             <img id="file__icon" src="./img/cert.png" alt="Certification">
                             <b class="file__text mt-1">Ethical Hacking</b>
@@ -165,7 +162,7 @@
                     </ul>
                 </div>
                 <div id="downloads__body" class="files__screen" style="display: none;">
-                    <ul class="desktop__files d-flex m-0 p-0">
+                    <ul class="desktop__files d-flex flex-column flex-md-row m-0 p-0">
                         <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('https://www.figma.com/downloads/', '_blank')">
                             <img id="file__icon" src="./img/figma.png" alt="EMPTY">
                             <b class="file__text mt-1">FigmaSetup.exe</b>
@@ -180,7 +177,7 @@
                     <h6 class="m-0 text-light align-self-center mx-auto">This folder is empty.</h6>
                 </div>
                 <div id="pictures__body" class="files__screen" style="display: none;">
-                    <ul class="desktop__files d-flex m-0 p-0">
+                    <ul class="desktop__files d-flex flex-column flex-md-row m-0 p-0">
                         <li class="desktop__file p-3 d-flex flex-column text-center" ondblclick="window.open('./img/ee.jpg', '_blank')">
                             <img id="file__icon" src="./img/ee.jpg" alt="EMPTY">
                             <b class="file__text mt-1">image1.jpg</b>
@@ -208,7 +205,7 @@
                     <div class="header__button ml-1" onclick="buttonMinimize(readMe)">
                         <img id="header__button-minimize" class="header__button-img" src="./img/minimize.png" alt="Minimize">
                     </div>
-                    <div class="header__button ml-1" onclick="buttonFullscreen(readMe)">
+                    <div class="header__button d-none d-md-flex ml-1" onclick="buttonFullscreen(readMe)">
                         <img id="header__button-fulscreen" class="header__button-img" src="./img/fullscreen.png" alt="Fullscreen">
                     </div>
                 </div>
@@ -218,12 +215,16 @@
                 <p class="p-2">Hi, I'm Anıl Emir Döner. This is my portfolio website. You can learn so many things about me when surf around, such as which songs i like to listen or which movies i like to watch.</p>
                 <p class="p-2">But most important informations about me hidden in terminal. Open the terminal and write 'help' to terminal to see commands can use.</p>
                 <p class="p-2">[Commands]</p>
+                <p class="px-2 m-0">help -> All available commands.</p>
                 <p class="px-2 m-0">whoami -> Informations about my background.</p>
-                <p class="px-2 m-0">certificate -> A list of certifications i have.</p>
+                <p class="px-2 m-0">social -> My social adresses.</p>
                 <p class="px-2 m-0">contact -> My contact addresses.</p>
+                <p class="px-2 m-0">certificates -> A list of certifications i have.</p>
+                <p class="px-2 m-0">clear -> My contact addresses.</p>
+                <p class="px-2 m-0">exit -> My contact addresses.</p>
             </div>
         </div>
-        <div id="browser" class="browser" style="display: none;">
+        <div id="browser" class="app browser" style="display: none;">
             <div id="browser__header" class="browser__header">
                 <b class="mx-auto align-self-center">Mozilla Firefox</b>
                 <div id="browser__buttons" class="d-flex p-2">
@@ -236,15 +237,15 @@
                 </div>
             </div>
             <div id="browser__specs" class="browser__specs p-2">
-                <div id="browser__specs-start" class="col-3 align-content-center d-flex">
+                <div id="browser__specs-start" class="col-4 col-md-3 align-content-center d-flex">
                     <img class="browser__specs-img" src="./img/refresh.png" alt="Refresh" onclick="reloadPage()">
                     <img class="browser__specs-img ml-3" src="./img/home-black.png" alt="Homepage" onclick="goHomepage()">
                 </div>
-                <div id="browser__specs-center" class="browser__searchbox col-6 p-1">
+                <div id="browser__specs-center" class="browser__searchbox col-8 col-md-6 p-1">
                     <img class="browser__specs-img" src="./img/search.png" alt="Search">
                     <input class="browser__input ml-2" type="text" value="https://ubuntu.com" placeholder="Search or enter address">
                 </div>
-                <div id="browser__specs-end" class="col-3 align-content-center d-flex justify-content-end">
+                <div id="browser__specs-end" class="col-3 align-content-center d-none d-md-flex justify-content-end">
                     <img class="browser__specs-img" src="./img/menu.png" alt="Menu">
                 </div>
             </div>
@@ -252,7 +253,7 @@
                 <iframe class="browser__screen" sandbox="allow-same-origin allow-forms allow-scripts" seamless="" src="http://ubuntu.com/"></iframe>
             </div>
         </div>
-        <div id="signal" class="signal" style="display: none;">
+        <div id="signal" class="app signal" style="display: none;">
             <div class="signal__header">
                 <b class="mx-auto align-self-center">Signal</b>
                 <div class="d-flex p-2">
@@ -267,11 +268,11 @@
             <div class="signal__body">
                 <div class="signal__sidebar">
                     <ul class="signal__items p-3 m-0">
-                        <li class="signal__item py-2 px-3" onclick="showChat()">
+                        <li class="signal__item justify-content-center py-2 px-3" onclick="showChat()">
                             <div class="signal__item-start">
                                 <img class="mx-auto align-self-center" src="./img/notes.png" alt="Notes">
                             </div>
-                            <div class="signal__item-end">
+                            <div class="signal__item-end d-none d-md-block">
                                 <b class="ml-3">Note to self</b>
                                 <p class="ml-3 mb-0">Take note</p>
                             </div>
@@ -295,7 +296,7 @@
                 </div>
             </div>
         </div>
-        <div id="spotify" class="spotify" style="display: none;">
+        <div id="spotify" class="app spotify" style="display: none;">
             <div class="spotify__header">
                 <b class="mx-auto align-self-center">Spotify</b>
                 <div class="d-flex p-2">
@@ -309,36 +310,36 @@
             </div>
             <div class="spotify__body">
                 <div class="row w-100 mx-auto">
-                    <div id="spotify__sidebar" class="col-2 p-0">
+                    <div id="spotify__sidebar" class="col-4 col-md-2 no-scrollbar p-0">
                         <ul class="d-flex flex-column p-4 m-0">
-                            <li class="spotify__object d-flex justify-content-start align-content-center p-2">
+                            <li class="spotify__object d-flex justify-content-center justify-content-md-start align-content-center p-2">
                                 <svg id="home-icon" role="img" height="24" width="24"viewBox="0 0 24 24"><path d="M12.5 3.247a1 1 0 00-1 0L4 7.577V20h4.5v-6a1 1 0 011-1h5a1 1 0 011 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 013 0l7.5 4.33a2 2 0 011 1.732V21a1 1 0 01-1 1h-6.5a1 1 0 01-1-1v-6h-3v6a1 1 0 01-1 1H3a1 1 0 01-1-1V7.577a2 2 0 011-1.732l7.5-4.33z"></path></svg>
                                 <svg id="home-active-icon" role="img" height="24" width="24"style="display: none;" viewBox="0 0 24 24"><path d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"></path></svg>
-                                <b class="ml-3 font-weight-bolder">Home</b>
+                                <b class="d-none d-md-block font-weight-bolder ml-3">Home</b>
                             </li>
-                            <li class="spotify__object d-flex justify-content-start align-content-center p-2 mt-2">
+                            <li class="spotify__object d-flex justify-content-center justify-content-md-start align-content-center p-2 mt-2">
                                 <svg id="search-icon" role="img" height="24" width="24"viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"></path></svg>
                                 <svg id="search-active-icon" role="img" height="24" width="24" style="display: none;" viewBox="0 0 24 24"><path d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"></path><path d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 01-2.077 5.816l4.344 4.344a1 1 0 01-1.414 1.414l-4.353-4.353a9.454 9.454 0 01-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"></path></svg>
-                                <b class="ml-3 font-weight-bolder">Search</b>
+                                <b class="d-none d-md-block font-weight-bolder ml-3">Search</b>
                             </li>
-                            <li class="spotify__object d-flex justify-content-start align-content-center p-2 mt-2">
+                            <li class="spotify__object d-flex justify-content-center justify-content-md-start align-content-center p-2 mt-2">
                                 <svg id="library-icon" role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z"></path></svg>
                                 <svg id="library-active-icon" role="img" height="24" width="24" style="display: none;" viewBox="0 0 24 24"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM15.5 2.134A1 1 0 0014 3v18a1 1 0 001 1h6a1 1 0 001-1V6.464a1 1 0 00-.5-.866l-6-3.464zM9 2a1 1 0 00-1 1v18a1 1 0 102 0V3a1 1 0 00-1-1z"></path></svg>
-                                <b class="ml-3 font-weight-bolder">Your Library</b>
+                                <b class="d-none d-md-block font-weight-bolder ml-3">Your Library</b>
                             </li>
                         </ul>
                         <div class="d-flex flex-column px-4">
-                            <div class="spotify__object d-flex p-2">
-                                <div class="create-playlist">
+                            <div class="spotify__object d-flex justify-content-center justify-content-md-start p-2">
+                                <div class="create-playlist p-2">
                                     <img class="align-self-center mx-auto" src="./img/plus.png" alt="Create" style="width: 12px; height: 12px;">
                                 </div>
-                                <b class="ml-3 font-weight-bolder">Create Playlist</b>
+                                <b class="d-none d-md-block font-weight-bolder ml-3">Create Playlist</b>
                             </div>
-                            <div class="spotify__object d-flex p-2 mt-2">
-                                <div class="liked-songs">
+                            <div class="spotify__object d-flex justify-content-center justify-content-md-start p-2 mt-2">
+                                <div class="liked-songs p-2">
                                     <svg class="align-self-center mx-auto" role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 jgfuCe"><path d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z"></path></svg>
                                 </div>
-                                <b class="ml-3 font-weight-bolder">Liked Songs</b>
+                                <b class="d-none d-md-block font-weight-bolder ml-3">Liked Songs</b>
                             </div>
                         </div>
                         <hr class="bg-dark w-75">
@@ -360,9 +361,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div id="spotify__main" class="spotify__main no-scrollbar col-10 p-0">
+                    <div id="spotify__main" class="spotify__main no-scrollbar col-8 col-md-10 p-0">
                         <div id="spotify-home" class="py-3 px-4">
-                            <div class="spotify__user ml-auto">
+                            <div class="spotify__user ml-auto mb-3 mb-md-0" onclick="window.open('https://open.spotify.com/user/nhkjx80c96tkmfs25ls841hwa?si=a1951663bb7941bd', '_blank')">
                                 <img class="rounded-circle align-self-center ml-1" src="./img/user.jpeg" alt="Profile Image" style="width: 32px; height: 32px;">
                                 <b class="align-self-center ml-2 mr-3">emir</b>
                             </div>
@@ -492,16 +493,16 @@
             </div>
             <div class="spotify__footer">
                 <div class="row mx-auto">
-                    <div class="col-3 d-flex align-items-center justify-content-start">
+                    <div class="d-none d-md-flex col-md-3 align-items-center justify-content-start">
                         <img src="https://i.scdn.co/image/fd4265fed33cecf23270aa27fe561a96ba2df776" alt="Album Image" style="width: 56px; height: 56px; object-fit: cover;">
                         <div class="song-credits">
                             <span id="song-name" class="align-self-start">Mr. Lonely</span>
                             <span id="singer-name" class="align-self-start m-0">Bobby Vinton</span>
                         </div>
                     </div>
-                    <div class="col-6 d-flex flex-column justify-content-center align-items-center">
+                    <div class="col-8 col-md-6 d-flex flex-column justify-content-center align-items-center">
                         <div id="song-functions" class="d-flex align-items-center">
-                            <div class="song-function">
+                            <div class="song-function d-none d-md-block">
                                 <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M13.151.922a.75.75 0 10-1.06 1.06L13.109 3H11.16a3.75 3.75 0 00-2.873 1.34l-6.173 7.356A2.25 2.25 0 01.39 12.5H0V14h.391a3.75 3.75 0 002.873-1.34l6.173-7.356a2.25 2.25 0 011.724-.804h1.947l-1.017 1.018a.75.75 0 001.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 00.39 3.5z"></path><path d="M7.5 10.723l.98-1.167.957 1.14a2.25 2.25 0 001.724.804h1.947l-1.017-1.018a.75.75 0 111.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 11-1.06-1.06L13.109 13H11.16a3.75 3.75 0 01-2.873-1.34l-.787-.938z"></path></svg>
                             </div>
                             <div class="song-function">
@@ -514,7 +515,7 @@
                             <div class="song-function">
                                 <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M12.7 1a.7.7 0 00-.7.7v5.15L2.05 1.107A.7.7 0 001 1.712v12.575a.7.7 0 001.05.607L12 9.149V14.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-1.6z"></path></svg>
                             </div>
-                            <div class="song-function">
+                            <div class="song-function d-none d-md-block">
                                 <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z"></path></svg>
                             </div>
                         </div>
@@ -524,17 +525,17 @@
                             <span style="color: rgb(179, 179, 179); font-size: 11px;">2:41</span>
                         </div>
                     </div>
-                    <div class="col-3 d-flex justify-content-end align-items-center">
+                    <div class="col-4 col-md-3 d-flex justify-content-end align-items-center">
                         <div class="song-function">
                             <svg role="presentation" height="16" width="16"  id="volume-icon" viewBox="0 0 16 16"><path d="M9.741.85a.75.75 0 01.375.65v13a.75.75 0 01-1.125.65l-6.925-4a3.642 3.642 0 01-1.33-4.967 3.639 3.639 0 011.33-1.332l6.925-4a.75.75 0 01.75 0zm-6.924 5.3a2.139 2.139 0 000 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 010 4.88z"></path></svg>
                             <svg style="display: none;" role="presentation" height="16" width="16" id="volume-icon" viewBox="0 0 16 16"><path d="M13.86 5.47a.75.75 0 00-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 008.8 6.53L10.269 8l-1.47 1.47a.75.75 0 101.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 001.06-1.06L12.39 8l1.47-1.47a.75.75 0 000-1.06z"></path><path d="M10.116 1.5A.75.75 0 008.991.85l-6.925 4a3.642 3.642 0 00-1.33 4.967 3.639 3.639 0 001.33 1.332l6.925 4a.75.75 0 001.125-.649v-1.906a4.73 4.73 0 01-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 01-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"></path></svg>
                         </div>
-                        <input id="volume-slider" class="spotify-slider" style="width: 93px;" type="range" min="0" max="100" value="50">
+                        <input id="volume-slider" class="spotify-slider" type="range" min="0" max="100" value="50">
                     </div>
                 </div>
             </div>
         </div>
-        <div id="netflix" class="netflix" style="display: block;">
+        <div id="netflix" class="app netflix" style="display: none;">
             <div class="netflix__header">
                 <b class="mx-auto align-self-center">Netflix</b>
                 <div class="d-flex p-2">
@@ -814,30 +815,32 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="netflix__cards no-scrollbar mt-4 px-2">
-                            <div id="card-mandalorian" class="netflix__card netflix__card-active" onclick="activateCard('mandalorian')">
-                                <img class="netflix__card-img" src="./img/netflix/mandalorian.jpg" alt="The Mandalorian">
-                            </div>
-                            <div id="card-dune" class="netflix__card" onclick="activateCard('dune')">
-                                <img class="netflix__card-img" src="./img/netflix/dune.jpg" alt="Dune">
-                            </div>
-                            <div id="card-johnwick" class="netflix__card" onclick="activateCard('johnwick')">
-                                <img class="netflix__card-img" src="./img/netflix/john-wick.jpg" alt="John Wick">
-                            </div>
-                            <div id="card-lucifer" class="netflix__card" onclick="activateCard('lucifer')">
-                                <img class="netflix__card-img" src="./img/netflix/lucifer.jpg" alt="Lucifer">
-                            </div>
-                            <div id="card-ozark" class="netflix__card" onclick="activateCard('ozark')">
-                                <img class="netflix__card-img" src="./img/netflix/ozark.jpg" alt="Ozark">
-                            </div>
-                            <div id="card-rick" class="netflix__card" onclick="activateCard('rick')">
-                                <img class="netflix__card-img" src="./img/netflix/rick.jpg" alt="Rick And Morty">
-                            </div>
-                            <div id="card-naruto" class="netflix__card" onclick="activateCard('naruto')">
-                                <img class="netflix__card-img" src="./img/netflix/naruto.jpg" alt="Naruto">
-                            </div>
-                            <div id="card-dexter" class="netflix__card" onclick="activateCard('dexter')">
-                                <img class="netflix__card-img" src="./img/netflix/dexter.jpg" alt="Dexter">
+                        <div id="activate-cards">
+                            <div class="netflix__cards no-scrollbar mt-4 px-2">
+                                <div id="card-mandalorian" class="netflix__card netflix__card-active" onclick="activateCard('mandalorian')">
+                                    <img class="netflix__card-img" src="./img/netflix/mandalorian.jpg" alt="The Mandalorian">
+                                </div>
+                                <div id="card-dune" class="netflix__card" onclick="activateCard('dune')">
+                                    <img class="netflix__card-img" src="./img/netflix/dune.jpg" alt="Dune">
+                                </div>
+                                <div id="card-johnwick" class="netflix__card" onclick="activateCard('johnwick')">
+                                    <img class="netflix__card-img" src="./img/netflix/john-wick.jpg" alt="John Wick">
+                                </div>
+                                <div id="card-lucifer" class="netflix__card" onclick="activateCard('lucifer')">
+                                    <img class="netflix__card-img" src="./img/netflix/lucifer.jpg" alt="Lucifer">
+                                </div>
+                                <div id="card-ozark" class="netflix__card" onclick="activateCard('ozark')">
+                                    <img class="netflix__card-img" src="./img/netflix/ozark.jpg" alt="Ozark">
+                                </div>
+                                <div id="card-rick" class="netflix__card" onclick="activateCard('rick')">
+                                    <img class="netflix__card-img" src="./img/netflix/rick.jpg" alt="Rick And Morty">
+                                </div>
+                                <div id="card-naruto" class="netflix__card" onclick="activateCard('naruto')">
+                                    <img class="netflix__card-img" src="./img/netflix/naruto.jpg" alt="Naruto">
+                                </div>
+                                <div id="card-dexter" class="netflix__card" onclick="activateCard('dexter')">
+                                    <img class="netflix__card-img" src="./img/netflix/dexter.jpg" alt="Dexter">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1089,7 +1092,7 @@
                     <div id="netflix-movie" class="netflix-screen" style="display: none;">
                         <div id="movies" class="mt-4">
                             <b class="mx-4">Movies</b>
-                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                            <div class="netflix__cards no-scrollbar mt-4 mx-2">
                                 <div class="netflix__card">
                                     <div class="netflix__card-items">
                                         <span>The Wolf of Wall Street</span>
@@ -1156,7 +1159,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <div class="netflix__cards no-scrollbar mt-1 mx-2">
+                            <div class="netflix__cards no-scrollbar mt-4 mx-2">
                                 <div class="netflix__card">
                                     <div class="netflix__card-items">
                                         <span>The Wolf of Wall Street</span>

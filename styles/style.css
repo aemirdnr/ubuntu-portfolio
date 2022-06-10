@@ -3,9 +3,12 @@
     user-select: none;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     margin: 0;
-    height: 100vh;
 
     color: #fefeff;
 
@@ -52,10 +55,12 @@ header {
 }
 
 .nav__text {
-    cursor: default;
-
     font-size: 16px;
     color: #FFF;
+}
+
+.nav__terminal {
+    cursor: pointer;
 }
 
 #terminal-img {
@@ -89,6 +94,10 @@ header {
     transition: transform 150ms ease-in;
 }
 
+.sidebar__item {
+    cursor: pointer;
+}
+
 .sidebar__item:hover .sidebar__icon {
     transform: scale(0.95);
 }
@@ -114,7 +123,7 @@ header {
 }
 
 .desktop__file:hover {
-    cursor: default;
+    cursor: pointer;
     
     background-color: rgba(255, 255, 255, 0.05);
 }
@@ -134,8 +143,6 @@ header {
     position: absolute;
 
     z-index: 40;
-
-    cursor: default;
 }
 
 .console__header {
@@ -162,6 +169,8 @@ header {
 
 .header__button:hover {
     background-color: rgb(163, 163, 163);
+
+    cursor: pointer;
 }
 
 .header__button-exit {
@@ -227,8 +236,6 @@ header {
 .read-me {
     width: 666px;
     position: absolute;
-
-    cursor: default;
 }
 
 .readme__header {
@@ -251,7 +258,7 @@ header {
     align-content: center;
     justify-content: start;
 
-    background-color: rgba(196, 196, 196, 0.62);
+    background-color: rgba(196, 196, 196, 0.9);
 
     color: black;
 
@@ -267,8 +274,6 @@ header {
 .files {
     width: 666px;
     position: absolute;
-
-    cursor: default;
 }
 
 .files__header {
@@ -346,7 +351,6 @@ header {
     position: absolute;
     width: calc(100% - 90px);
     height: 100vh;
-    cursor: default;
 
     margin-left: 90px;
 }
@@ -372,6 +376,8 @@ header {
     align-self: center;
     width: 24px;
     height: 24px;
+
+    cursor: pointer;
 }
 
 .browser__body {
@@ -412,7 +418,6 @@ header {
     position: absolute;
     width: calc(100% - 90px);
     height: 100vh;
-    cursor: default;
 
     margin-left: 90px;
 }
@@ -437,7 +442,7 @@ header {
 }
 
 .signal__sidebar {
-    width: 275px;
+    min-width: 225px;
     height: 100%;
 
     background-color: #262626;
@@ -562,7 +567,6 @@ header {
     flex-direction: column;
     width: calc(100% - 90px);
     height: 100%;
-    cursor: default;
 
     margin-left: 90px;
 }
@@ -581,12 +585,13 @@ header {
     display: flex;
 
     width: 100%;
-    height: calc(100% - 162px);
+    height: 100%;
 
     background-color: #1b1b1b;
 }
 
 .spotify__body #spotify__sidebar{
+    height: calc(100% - 163px);
     background-color: #000;
 }
 
@@ -696,7 +701,7 @@ header {
 .spotify__footer {
     display: flex;
     position: relative;
-    bottom: 0;
+    bottom: 163px;
     z-index: 5;
 
 
@@ -756,7 +761,6 @@ header {
     transform: scale(1.03);
 }
 
-
 .spotify-slider {
     -webkit-appearance: none;
 
@@ -769,6 +773,10 @@ header {
     background: linear-gradient(to right, #ffffff 0%, #ffffff 50%, hsla(0,0%,100%,0.3 50%), hsla(0,0%,100%,0.3) 100%);
 
     outline: none;
+}
+
+#volume-slider {
+    width: 90px;
 }
 
 .spotify-slider::-moz-range-thumb {
@@ -818,8 +826,7 @@ header {
 .netflix {
     position: absolute;
     width: calc(100% - 90px);
-    height: 100vh;
-    cursor: default;
+    height: 100%;
 
     margin-left: 90px;
 }
@@ -849,7 +856,7 @@ header {
     justify-content: center;
 
     min-width: 100px;
-    height: calc(100vh - 73px);
+    height: 100vh;
 
     background-color: #181818;
 }
@@ -861,6 +868,7 @@ header {
 
     width: 100%;
     height: 75px;
+    bottom: 72px;
 
     opacity: 0.7;
 
@@ -901,7 +909,7 @@ header {
     flex-direction: column;
     
     width: 100%;
-    height: calc(100vh - 73px);
+    height: calc(100vh - 72px);
 }
 
 .netflix-screen {
@@ -917,6 +925,11 @@ header {
 .netflix-screen b {
     color: #FFF;
     font-size: 18px;
+}
+
+.card-container {
+    width: 100%;
+    height: 100%;
 }
 
 .netflix__cards {
@@ -1129,3 +1142,77 @@ header {
   }
 
 /* ----------- */
+
+/* Bootstrap MD breakpoint */
+@media (max-width: 768px) {
+    .app {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    /* Console */
+
+    .console {
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100%;
+    }
+
+    .console__output {
+        max-height: 90vh;
+    }
+
+    .console__body {
+        height: 100vh;
+    }
+
+    /* Read Me */
+
+    .read-me {
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100%;
+    }
+
+    .readme__body {
+        height: 100vh;
+    }
+
+    /* Files */
+
+    .files {
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 100%;
+    }
+
+    .files__body {
+        height: 100vh;
+    }
+
+    /* Signal */
+
+    .signal__sidebar {
+        min-width: 125px;
+    }
+
+    /* Spotify */
+
+    #spotify__sidebar {
+        overflow-y: auto;
+    }
+
+    #volume-slider {
+        width: 55px;
+    }
+
+    /* Netflix */
+
+    .netflix__sidebar {
+        min-width: 55px;
+    }
+
+ }
