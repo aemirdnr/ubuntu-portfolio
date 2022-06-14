@@ -512,11 +512,14 @@ header {
 
 
 .signal__input {
-    border: 0px;
+    position: relative;
     background-color: #2a2a2a;
 
     width: 90%;
+
+    border: 0px;
     border-radius: 1rem;
+    bottom: 0;
 
     color: white;
 }
@@ -591,7 +594,7 @@ header {
 }
 
 .spotify__body #spotify__sidebar{
-    height: calc(100% - 163px);
+    height: calc(100% - 128px);
     background-color: #000;
 }
 
@@ -638,7 +641,7 @@ header {
 
 .spotify__main {
     overflow-y: auto;
-    height: 100%;
+    height: calc(100% - 128px);
 }
 
 .spotify__user {
@@ -700,12 +703,10 @@ header {
 
 .spotify__footer {
     display: flex;
-    position: relative;
-    bottom: 163px;
-    z-index: 5;
+    position: fixed;
+    bottom: 0;
 
-
-    width: 100%;
+    width: calc(100% - 90px);
     height: 90px;
 
     border-top: 1px solid #282828;
@@ -845,7 +846,6 @@ header {
     display: flex;
 
     width: 100%;
-    height: 100%;
 
     background-color: #121212;
 }
@@ -856,7 +856,7 @@ header {
     justify-content: center;
 
     min-width: 100px;
-    height: 100vh;
+    height: calc(100vh - 38px);
 
     background-color: #181818;
 }
@@ -906,9 +906,8 @@ header {
 
 .netflix__main {
     display: flex;
-    flex-direction: column;
-    
-    width: 100%;
+
+    width: calc(100% - 100px);
     height: calc(100vh - 72px);
 }
 
@@ -927,27 +926,13 @@ header {
     font-size: 18px;
 }
 
-.card-container {
-    width: 100%;
-    height: 100%;
-}
-
 .netflix__cards {
     display: flex;
-    position: relative;
-
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: start;
-    align-items: stretch;
 
     padding: 16px;
     gap: 24px;
-    width: calc(100% - 110px);
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
+    overflow: auto;
 }
 
 .netflix__cards::-webkit-scrollbar {
@@ -955,22 +940,31 @@ header {
 }
 
 .netflix__card {
-    display: inline-block;
+    position: relative;
 
-    min-width: 230px;
-    height: 320px;
+    min-width: 200px;
+    height: 300px;
 
-    background-color: #000000;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     transition: opacity 200ms ease-in;
+}
+
+.netflix__card-img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
 }
 
 .netflix__card:hover .netflix__card-img{
     opacity: 0.3;
 }
 
-.netflix__card-img {
-    width: 100%;
-    height: 100%;
+.netflix__card:hover .netflix__card-items{
+    opacity: 1;
 }
 
 .netflix__card-items {
@@ -984,12 +978,13 @@ header {
     z-index: 5;
     opacity: 0;
     
-    width: 230px;
-    height: 320px;
+    width: 200px;
+    height: 300px;
 
     color: #FFF;
     transition: opacity 350ms ease-in;
 }
+
 
 .netflix__card-items span {
     font-size: 21px;
@@ -997,10 +992,6 @@ header {
 
     text-align: center;
     white-space:normal;
-}
-
-.netflix__card:hover .netflix__card-items{
-    opacity: 1;
 }
 
 .netflix__card-button {
@@ -1024,15 +1015,11 @@ header {
     position: absolute;
 
     top: 38px;
-    width: 100%;
+    width: calc(100% - 100px);
     height: 100%;
 
     object-fit: cover;
     opacity: 0.4;
-}
-
-#netflix-soon .netflix__cards {
-    justify-self: flex-end;
 }
 
 #netflix-soon .netflix__card {
@@ -1052,8 +1039,11 @@ header {
 .intro-items {
     display: flex;
     flex-direction: column;
-    position: relative;
+    position: fixed;
+    top: 88px;
     
+    padding-left: 24px;
+    padding-right: 24px;
     gap: 24px;
 }
 
@@ -1209,10 +1199,50 @@ header {
         width: 55px;
     }
 
+    .spotify__footer {
+        width: 100%;
+    }
+
     /* Netflix */
 
     .netflix__sidebar {
         min-width: 55px;
     }
 
+    .netflix__main {
+        width: calc(100% - 55px);
+    }
+
+    .movie-intro-img {
+        width: calc(100% - 55px);
+    }
+
+    .intro-button {
+        width: 100px;
+        height: 40px;
+        font-size: 11px;
+    }
+
+    .intro-items {
+        text-align: center;
+        align-items: center;
+    }
+
+    .intro-items b {
+        font-size: 25px;
+    }
+
+    .intro-items p {
+        font-size: 16px;
+        margin-bottom: 0;
+    }
+
+    #activate-cards .netflix__cards {
+        gap: 8px;
+    }
+
+    #activate-cards .netflix__card {
+        min-width: 150px;
+        height: 200px;
+    }
  }
